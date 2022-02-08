@@ -1,4 +1,4 @@
-# HTFEuro
+# SNPEuro
 
 HTFEuro (Human Transcription Factor Europe) is created as part of the Bioinformatics Group Software Development Project during the Queen Mary University of London Bioinformatics MSc.
 
