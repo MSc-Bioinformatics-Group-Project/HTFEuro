@@ -1,6 +1,6 @@
 # SNPEuro
 
-HTFEuro (Human Transcription Factor Europe) is created as part of the Bioinformatics Group Software Development Project during the Queen Mary University of London Bioinformatics MSc.
+SNPEuro(Single Nucleotide Polymorphism Europe) is created as part of the Bioinformatics Group Software Development Project during the Queen Mary University of London Bioinformatics MSc.
 
 User should be able to retrive single nucleotide polymorphism (SNP) information given either a genomic coordinate (chromosome, start and end), SNP name (rs value), or gene name (or any aliases associated to it).
 
