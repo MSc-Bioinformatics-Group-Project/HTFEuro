@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} 
+SNPEuro Portal
+{% endblock %}
+
+{% block content %} 
+<body>
+    <h1>SNPEuro Portal</h1>
+    <form method="POST">
+        {{ form.csrf_token }}
+        {{ form.snp_name.label }} {{form.snp_name() }}
+        {{ form.submit() }}
+    </form>
+</body>
+{% endblock %}
