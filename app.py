@@ -1,12 +1,16 @@
-from crypt import methods
+from curses import flash
+from tkinter import E
+from unicodedata import name
 from flask import Flask, redirect, url_for, render_template, request, redirect, Blueprint
 import pandas as pd
+from IPython.display import HTML
 
 #import libraries needed to create and process forms
 from flask_wtf import FlaskForm
 from flask_wtf import Form
 from wtforms import StringField, SubmitField
 from wtforms.validators import Required
+from wtforms import IntegerField
 
 #create a flask application object
 app = Flask(__name__)
@@ -15,7 +19,6 @@ app.config['SECRET_KEY'] = 'change this unsecure key'
 
 #where to find the SNP information
 snp_table_filename = 'snp_table.tsv'
-
 
 #define the action for the top level route
 #this is the front-page
@@ -110,8 +113,23 @@ def index_gene():
 def gene(gene_name):
 
     #load snp protein data from TSV file into pandas dataframe with snp name as index
-    df = pd.read_csv(snp_table_filename, sep='\t', index_col=3)
+    df = pd.read_csv(snp_table_filename, sep='\t', index_col=4)
+    #df2 = pd.read_csv(snp_table_filename, sep='\t', index_col=4)
+    #alias = df[['ID', 'Gene Name']]
+    #print(alias)
     #snp_name = snp_name.upper() #ensure name is in captial letters
+
+    #row = df.loc[gene_name]
+    #row2 = df2.loc[gene_name]
+    
+    #if gene_name in df["ID"]:
+        #return render_template('gene_view.html', name=gene_name, rsvalue = row.ID, \
+        #genomic_coordinate= row.POS)
+    #if gene_name in row:
+        #return render_template('gene_view.html', name=gene_name, rsvalue = row.ID, \
+        #genomic_coordinate= row.POS)
+    #else:
+        #return "We don't have any information about a gene called %s." % gene_name
 
     try: #try to extract row for specific gene name
         row = df.loc[gene_name]
@@ -122,18 +140,63 @@ def gene(gene_name):
         #if protein not found a key error is thrown 
         return "We don't have any information about a gene called %s." % gene_name
 
+
+
+
 #############################################################
 ##genomic coordinate
 
-class GenomicForm(FlaskForm):
-    genomic = StringField('Enter a valid Genomic coordinate:', validators=[Required()])
+class Coord(FlaskForm):
+    startgenomic = IntegerField('Start Genomic coordinate:', validators=[Required()])
+    endgenomic = IntegerField('End Genomic coordinate:', validators=[Required()])
     submit = SubmitField('Submit')
 
 @app.route("/genomic", methods=['GET', 'POST'])
 def index_genomic():
-    form = GenomicForm()
-    genomic = None
-return render_template('index.html', form=form, genomic=genomic)
+    form = Coord()
+    startgenomic = None
+    endgenomic = None
+
+    if request.method == "POST":
+        if form.validate_on_submit():
+            startgenomic = form.startgenomic.data
+            #print('\n\n\n'+str(startgenomic)+'\n\n\n')
+            endgenomic = form.endgenomic.data
+            #print('\n\n\n'+str(endgenomic)+'\n\n\n')
+        #print('\n\n\n'+endgenomic+'\n\n\n')
+            return redirect(url_for('genomic', startgenomic=startgenomic, endgenomic=endgenomic))
+        else:
+            #flash("We don't have info about this start genomic coordinate")
+            return redirect(url_for('genomic'))
+
+    return render_template('index_genomic.html', form=form, startgenomic=startgenomic, endgenomic=endgenomic)
+
+@app.route("/genomic/<startgenomic>")
+def genomic(startgenomic, endgenomic):
+
+    #load snp protein data from TSV file into pandas dataframe with snp name as index
+    df = pd.read_csv(snp_table_filename, sep='\t', index_col=2)
+    #snp_name = snp_name.upper() #ensure name is in captial letters
+
+    upper = df.query("POS > %s" % startgenomic)
+    lower = upper.query("POS < %s" % endgenomic)
+    result = upper.to_html()
+
+    return render_template('genomic_view.html', name=startgenomic, rsvalue = lower.ID, geneid = lower.GENEID) 
+
+    #coord_range = range(int(startgenomic), int(endgenomic))
+    
+    #try: #try to extract row for specific start gene 
+        #start_row = df.loc[int(startgenomic)]
+       # end_row = df.loc[int(endgenomic)]
+
+        #if snp is found, return some info about it
+        #return render_template('genomic_view.html', name=startgenomic, rsvalue = start_row.ID, geneid = start_row.GENEID,
+        #endname=endgenomic, endrsvalue = end_row.ID, endgeneid = end_row.GENEID) 
+   # except:
+        #if protein not found a key error is thrown 
+        #return "We don't have any information about a gene starting with %s." % startgenomic % endgenomic
+
 
 
 #about page
