@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %} 
+SNPEuro Portal
+{% endblock %}
+
+{% block content %} 
+
+
+</style>
+
+<legend class="border-bottom mb-4">{{name}}</legend>
+
+<!-- Navigation tabs -->
+<ul class="nav nav-tabs nav-fill">
+<li class="nav-item">
+<a class="nav-link active" data-toggle="tab" href="#BI">Genetic Annotation</a>
+</li>
+</ul>
+<p> </p>
+
+
+<!-- Genetic Annotation tabs -->
+<div class="tab-content">
+    <div class="tab-pane container active" id="BI">
+        {% for table in tables %}
+                {{ table|safe }}
+        {% endfor %}
+      
+
+
+{% endblock %}

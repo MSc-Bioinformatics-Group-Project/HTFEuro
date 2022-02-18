@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %} 
+SNPEuro Portal
+{% endblock %}
+
+{% block content %} 
+<body>
+    <h1>SNPEuro Portal</h1>
+<!-- add form -->
+    <form method="POST" action="">
+        {{form.hidden_tag()}}
+        <fieldset class="form-group">
+            <div class="form-group">
+                {{ form.startgenomic.label(class="form-control-label") }}
+                {% if form.startgenomic.errors %}
+                    {{ form.startgenomic(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.search.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.startgenomic(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.endgenomic.label(class="form-control-label") }}
+                {% if form.endgenomic.errors %}
+                    {{ form.endgenomic(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.search.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.endgenomic(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+    </form>
+</body>
+{% endblock %}
