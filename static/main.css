@@ -1,0 +1,30 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.flex-wrapper {
+  display: flex;
+  min-height: 50vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container
+{
+    min-height: 70%;
+    min-height: -webkit-calc(100% - 186px);
+    min-height: -moz-calc(100% - 186px);
+    min-height: calc(100% - 186px);
+}
