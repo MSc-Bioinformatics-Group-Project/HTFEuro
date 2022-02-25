@@ -7,7 +7,7 @@ library(ggplot2)
 #read data
 #set.populations
 getpositiondata <- function(x,y){
-  GENOME.class <<- readVCF('chr21.five.populations.vcf.gz',frompos = x, topos = y,tid = 'chr21',numcols = 1000, gffpath = 'chr21.gtf')
+  GENOME.class <<- readVCF('chopped.vcf.gz',frompos = x, topos = y,tid = 'chr21',numcols = 1000)
   
   Br <<- read.csv('British.csv')
   Fin <<- read.csv('Finnish.csv')
@@ -30,6 +30,13 @@ getpositiondata <- function(x,y){
 
 SNPCount <- function(){
   x <- GENOME.class@n.biallelic.sites + GENOME.class@n.polyallelic.sites
+  return(x)
+}
+
+#get summary data
+
+sumdata <- function(){
+  x <- get.sum.data(object = GENOME.class)
   return(x)
 }
 
