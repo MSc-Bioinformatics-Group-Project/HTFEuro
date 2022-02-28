@@ -1,19 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<!--<head>
+    <title>About </title>
+</head>-->
+<body>
+    
+
+
+
 {% extends "base.html" %}
 
 {% block title %} 
-About SNPEuro 
+About 
 {% endblock %}
 
 {% block content %} 
-<h1>All about SNPEuro</h1>
 
-<p> SNPEuro (Single Nucleotide Polymorphism Euro) is a web application that aims at retrieving SNP information for a genomic region of interest.</p>
+<div class="about container">
+    <p class="lead">All about SNPEuro</p>
+    <p>SNPEuro (Single Nucleotide Polymorphism Euro)is a web application that aims at 
+        retrieving SNP information for a genomic region of interest,
+         and allows users to download Results and statistical analysis in a format of tsv file.</p>
+    <p>Users are able to select either a genomic coordinate, SNP name or a gene of interest.
+        The name, genomic position, genotype frequencies and allele frequencies for each SNP will be retrieved.</p>
+    <p>This webapp was developed as part of the Queen Mary University of London (QMUL) Bioinformatics
+        masters degree program.</p>
+    <p>Developers of this app by Vi Bui, Uppy Gill, Liam Johnson, Neha Khairnar.
+        The code can be found on our <a href=https://github.com/MSc-Bioinformatics-Group-Project/SNPEuro> Github</a></p>
 
-<p>The database consists of SNPs from five European populations: British, Finnish, Iberian, Toscani and CEPH.</p>
+    <div class="references">
+        <p class="lead">Datasets used</p>
+        <p>Our existing SNP datasets include data from:</p>
 
-<p>Users are able to select either a genomic coordinate, SNP name or a gene of interest. </p>   
+        <div class="reference-list">
 
-<p>The name, genomic position, genotype frequencies and allele frequencies for each SNP will be retrieved.</p> 
+<div class="reference-list">
+    <ul><strong>1000 Gnome Project: </strong>Laura C, Susan F, Xiangqun Zheng-B, Ian S, Emily P, Ernesto L, Anne-Marie T,
+         Paul F.The international Genome sample resource (IGSR): A worldwide collection of genome variation incorporating the 1000 Genomes 
+         Project data.Nucleic Acids Research, Volume 45, Issue D1, January 2017.
+        <em>Nucleic Acids Research</em>. 2017 Jan 8. DOI:
+        <a href=" https://doi.org/10.1093/nar/gkw829" >10.1093/nar/gkw829</a>
+    </ul>
 
+    <p class="lead">Packages used for Statistical analysis include:</p>
+
+<div class="reference-list">
+    <ul><strong>Neutrality Statistics(Tajima's D):</strong>
+        <ul><span style="Font-family:courier"> Neutrality.stats:</span>Christopher C, Daryl T, Michae E, Johanna S, Robert L, Mark R, Deborah N. “Genomic regions 
+        exhibiting positive selection identified from dense genotype data.” <em>Genome Res</em>.
+        PMID: 16251465 PMCID: PMC1310643 DOI:<a href="http://www.genome.org/cgi/doi/10.1101/gr.4326505"> 10.1101/gr.4326505</a>.</ul></ul>
+    <ul><strong>Diversity Statistics:</strong>
+        <ul><span style="Font-family:courier"> diversity.stats.between:</span>Juan G, Murray C, David H. "Comparative genetic diversity of Cryptosporidium species causing human infections."
+         <em>Nature Genetics</em> PMID: 32772945  DOI:<a href=" https://doi.org/10.1017/S0031182020001493">10.1017/S0031182020001493</a></ul></ul>
+    <ul><ul><!--<strong>F_ST.stats: </strong>-->
+        <span style="Font-family:courier"> F_ST.stats:</span>Natalie C, Steven W, Li L, Daniele S, Pei-Yong S, Robert T, Vanessa S."Inter- and intra-lineage genetic diversity of wild-type Zika viruses reveals
+         both common and distinctive nucleotide variants and clusters of genomic diversity"
+        <em>Nature Genetics</em> PMID: 31355708 PMCID: PMC6711133. DOI:<a href="https://doi.org/10.1080/22221751.2019.1645572">10.1080/22221751.2019.1645572</a>.</ul></ul>
+</div>
+
+
+
+
+</body>
+</html>
+    
 
 {% endblock %}
