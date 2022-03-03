@@ -14,3 +14,8 @@ Developers of this web app were [Bui V](https://github.com/vi-bui), [Gill U](htt
 1. `Git clone git@github.com:MSc-Bioinformatics-Group-Project/SNPEuro.git`
 2. `cd SNPEuro`
 3. `pip install -r requirements.txt`
+
+# Data for SNPEuro
+
+Please download the data required for SNPEuro here (QMUL email required) ]
+https://qmulprod-my.sharepoint.com/:f:/g/personal/bt211033_qmul_ac_uk/EtCh-BzpWbREoHCMs-E8IpEBLdHHIb4d0W_hgcHyCvuM9Q?e=qWxwLs
