@@ -14,3 +14,5 @@ If multiple SNPs are returned, the user should be able to select the population(
 ### Instructions to install SNPEuro ###
 
 1. `Git clone git@github.com:MSc-Bioinformatics-Group-Project/SNPEuro.git`
+2. `cd SNPEuro`
+3. `pip install -r requirements.txt`
