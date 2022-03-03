@@ -14,6 +14,7 @@ Developers of this web app were [Bui V](https://github.com/vi-bui), [Gill U](htt
 1. `Git clone git@github.com:MSc-Bioinformatics-Group-Project/SNPEuro.git`
 2. `cd SNPEuro`
 3. `pip install -r requirements.txt`
+4. Change directory in uploads under "@app.route("/get-download")" to your own installation directory
 
 # Data for SNPEuro
 
