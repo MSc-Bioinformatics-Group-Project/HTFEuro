@@ -11,3 +11,4 @@ If multiple SNPs are returned, the user should be able to select the population(
 
 # Installing SNPEuro
 
+### Instructions to install SNPEuro ###
