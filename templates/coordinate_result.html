@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %} 
+SNPEuro Portal
+{% endblock %}
+
+{% block content %} 
+
+<div class ="content-section">
+    <!-- Download button -->
+     <button class="btn btn-primary btn-sm button5 float-right" style="width:5%" onclick="exportTableToCSV('Statistics.csv')"><i class="fa fa-download" style="font-size:18px"></i></button>
+  
+
+</style>
+
+<legend class="border-bottom mb-4">{{name}}</legend>
+
+<!-- Navigation tabs -->
+<ul class="nav nav-tabs nav-fill">
+<li class="nav-item">
+<a class="nav-link active" data-toggle="tab" href="#BI">Genetic Annotation</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#PS">Statistical Results</a>
+</li>
+</ul>
+
+<body>
+  <h1>SNPEuro Portal</h1>
+  <form method="POST" action="">
+<!-- add form -->
+      {{form.hidden_tag()}}
+      <fieldset class="form-group">
+          <div class="form-group">
+              {{ form.statistics.label(class="form-control-label") }}
+              {% if form.statistics.errors %}
+                  {{ form.statistics(class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.search.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.statistics(class="form-control form-control-lg") }}
+              {% endif %}
+          </div>
+      </fieldset>
+      <div class="form-group">
+          {{ form.submit(class="btn btn-outline-info") }}
+  </form>
+</body>
+
+<!-- Genetic Annotation tabs -->
+
+<div class="tab-content">
+    <div class="tab-pane container active" id="BI">
+        {% for table in tables %}
+                {{ table|safe }}
+        {% endfor %}
+</div>
+
+<div class="tab-pane container fade" id="PS">
+    <img src="{{url_for('static', filename='Screenshot.png')}}" align="middle" width="400" 
+    height="500" />
+
+      
+
+        <script>
+ function downloadCSV(csv, filename) {
+                var csvFile;
+                var downloadLink;
+
+                csvFile = new Blob([csv], {type: "text/csv"});
+
+
+                downloadLink = document.createElement("a");
+
+                downloadLink.download = filename;
+
+                downloadLink.href = window.URL.createObjectURL(csvFile);
+
+
+                downloadLink.style.display = "none";
+
+                document.body.appendChild(downloadLink);
+
+
+                downloadLink.click();
+            }
+
+
+ function exportTableToCSV(filename) {
+            var csv = [];
+            var rows = document.querySelectorAll("table tr");
+
+            for (var i = 0; i < rows.length; i++) {
+                var row = [], cols = rows[i].querySelectorAll("td, th");
+
+                for (var j = 0; j < cols.length; j++) 
+                    row.push("\""+cols[j].innerText+"\"");
+
+                csv.push(row.join(","));        
+            }
+
+            // Download CSV file
+            downloadCSV(csv.join("\n"), filename);
+        }
+</script>
+
+{% endblock %}

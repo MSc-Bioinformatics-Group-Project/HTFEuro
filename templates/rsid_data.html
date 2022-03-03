@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %} 
+SNPEuro Portal
+{% endblock %}
+
+{% block content %} 
+ 
+<div class ="content-section">
+  <!-- Download button -->
+   <button class="btn btn-primary btn-sm button5 float-right" style="width:5%" onclick="exportTableToCSV('statresults.csv')"><i class="fa fa-download" style="font-size:18px"></i></button>
+
+
+
+</style>
+
+
+<ul class="nav nav-tabs nav-fill">
+<li class="nav-item">
+<a class="nav-link active" data-toggle="tab" href="#SR" style="font-size:3vw;"><b>Genomic Annotation</b></a>
+</li>
+</ul>
+
+<!-- Genetic Annotation tabs -->
+<div class="tab-content">
+    <div class="tab-pane container active" id="BI">
+      
+      <table class="table table-hover">
+        <tr>
+          <th scope="row">Position</th>
+          <td class="c1">{{Position}}</td>
+        </tr>
+
+        <tr>
+            <th scope="row">Reference Allele</th>
+            <td class="c1">{{Reference}}</td>
+        </tr>
+        
+        <tr>
+            <th scope="row">Alternative Allele</th>
+            <td class="c1">{{Alternative}}</td>
+        </tr>
+
+        {% for item in items %}
+
+        <tr>
+            <th scope="row">{{item.Population}} Genotypes</th>
+            <td class="c1"><SPAN>{{item.Genotypes}}</SPAN></td>
+
+            <th scope="row">{{item.Population}} Allele Frequency</th>
+            <td class="c1"><SPAN>{{item.AF}}</SPAN></td>
+        </tr>
+
+
+        {% endfor %}
+        </table>    
+
+<p> 0/0 = Homologous Reference </p>
+<p> 0/X = Heterozygous Alternative X</p>   
+<p> X/X = Homologous Alternative X </p> 
+
+<script>
+  function downloadCSV(csv, filename) {
+                 var csvFile;
+                 var downloadLink;
+ 
+                 csvFile = new Blob([csv], {type: "text/csv"});
+ 
+ 
+                 downloadLink = document.createElement("a");
+ 
+                 downloadLink.download = filename;
+ 
+                 downloadLink.href = window.URL.createObjectURL(csvFile);
+ 
+ 
+                 downloadLink.style.display = "none";
+ 
+                 document.body.appendChild(downloadLink);
+ 
+ 
+                 downloadLink.click();
+             }
+ 
+ 
+  function exportTableToCSV(filename) {
+             var csv = [];
+             var rows = document.querySelectorAll("table tr");
+ 
+             for (var i = 0; i < rows.length; i++) {
+                 var row = [], cols = rows[i].querySelectorAll("td, th");
+ 
+                 for (var j = 0; j < cols.length; j++) 
+                     row.push("\""+cols[j].innerText+"\"");
+ 
+                 csv.push(row.join(","));        
+             }
+ 
+             // Download CSV file
+             downloadCSV(csv.join("\n"), filename);
+         }
+ </script>
+ 
+
+{% endblock %}

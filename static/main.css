@@ -1,0 +1,99 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+/* Header Title */
+.header {
+  padding: 20px;
+  text-align: center;
+  background: #f9f7f7;
+  margin:10px;
+  font-size:20px;
+}
+
+/* About page */
+.about {
+  padding: 20px;
+  text-align: left;
+  background: #f8f6f6;
+  margin:10px;
+  font-size:20px;
+}
+
+/* About statistics */
+.about_statistics {
+  padding: 20px;
+  text-align: left;
+  background: #f8f6f6;
+  margin:10px;
+  font-size:20px;
+}
+
+/* Help page */
+.help {
+  padding: 20px;
+  text-align: left;
+  background: #f8f6f6;
+  margin:10px;
+  font-size:20px;
+}
+
+.help_images img{
+  width:50px;
+  height:100px;
+  margin:5px;
+  }
+
+/* SNP Search page */
+.snpsearch {
+  padding: 20px;
+  text-align: left;
+  background: #f8f6f6;
+  margin:10px;
+  font-size:20px;
+}
+
+/* Gene Search page */
+.genesearch {
+  padding: 20px;
+  text-align: left;
+  background: #f8f6f6;
+  margin:10px;
+  font-size:20px;
+}
+
+/* Genomic Coordinate Search page */
+.genomicsearch {
+  padding: 20px;
+  text-align: left;
+  background: #f8f6f6;
+  margin:10px;
+  font-size:20px;
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 300px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.flex-wrapper {
+  display: flex;
+  min-height: 50vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.container
+{
+    min-height: 70%;
+    min-height: -webkit-calc(100% - 186px);
+    min-height: -moz-calc(100% - 186px);
+    min-height: calc(100% - 186px);
+}

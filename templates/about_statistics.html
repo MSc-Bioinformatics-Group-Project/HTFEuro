@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %} 
+About SNPEuro 
+{% endblock %}
+
+{% block content %} 
+
+<!-- Page includes statistics information -->
+<body>
+    <div class="about_statistics"> 
+      <h1>Statistical Tests<h1>
+    </div> 
+</body>
+
+<div class="w3-container"> 
+    <h5>
+        Nucleotide Diversity
+    </h5>
+    <p>Nucleotide diversity is a concept in molecular genetics measuring the degree of polymorphism within a population. 
+        This is simply defined as the average number of nucleotide differences per site between two DNA sequences in all 
+        possible pairs within the same population, (this is denoted as Pi). Within populations, highly diverse or well-balanced 
+        libraries have approximately equal populations of all four nucleotides. Conversely, low diversity libraries have a high 
+        proportion of certain nucleotides. Within NPEuro portal we are able to provide nucleotide diversity between SNPs 
+        comparing different populations, denoted as Pi within the results table.
+    </p>
+  </div>
+  <hr>
+</article>
+
+  <article class="w3-container"> 
+    <h5>
+        Haplotype Diversity
+    </h5>
+    <p>SNPEuro also provides a calculation for haplotype diversity. A haplotype is a set of DNA polymorphisms that tend to 
+        be inherited together and can be a combination of alleles or set of SNPs found on the same chromosome. Haplotype 
+        diversity represents the probability that two randomly sampled alleles are different and can be implicated by a 
+        number of different processes such as mutation, recombination, marker ascertainment and demography. It is thus the
+        measure of the uniqueness of a particular haplotype in a given population. Within SNPEuro you can select for this 
+        statistic to be read from their chosen genomic and/or population searches.
+    </p>
+    <hr>
+  </article>
+  
+  <section class="w3-container"> 
+    <!-- Put "F" in italics and "ST" as subscript -->
+    <h5>
+        Genetic Differentiation ( <i>F</i><sub>ST</sub> ) & Divergence (d_XY)
+    </h5>
+    <p>
+        You can select different European populations to deliver calculated population genetic variation. This measure, 
+        also called the fixation index ( <i>F</i><sub>ST</sub> ), is denoted as the proportion of the total genetic variance contained in a 
+        subpopulation relative to the total genetic variance. Population selection strongly influences ( <i>F</i><sub>ST</sub> ) 
+        values, such that closely related groups are indistinguishable, displaying panmixis.
+    </p>
+
+    <p>
+
+    </p>
+        Within genetic diversity, (d_XY), is the absolute nucleotide divergence between two populations, which is also 
+        calculated within SNPEuro. This measure shows the patterns of genetic divergence between populations as a function 
+        of nucleotide diversity.
+    </p>
+    <hr>
+  </section>
+
+
+  <article class="w3-container"> 
+    <h5>
+        Tajima’s D
+    </h5>
+    <p>
+        Neutrality tests compare two estimators of the population mutation parameter that characterises the mutation-drift 
+        equilibrium. The Tajima’s D test is one measure of neutrality and is computed as the difference between two measures 
+        of genetic diversity. It is the mean number of pairwise differences and the number of segregating sites, each scaled 
+        such that they are expected to be the same in neutrally evolving population of constant size. Tajima’s D thus 
+        distinguishes between a DNA sequence evolving randomly (or neutrally) and one evolving under a non-random process. 
+        A negative result signifies an excess of low frequency polymorphisms relative to expectation (population size expansion), 
+        whereas a positive result signifies low levels of both low and high frequency polymorphisms, indicating a contraction in 
+        population size and/or balancing selection.
+    </p>
+    <hr>
+  </article>
+
+{% endblock %}

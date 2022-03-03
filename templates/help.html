@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %} 
+Help 
+{% endblock %}
+
+{% block content %} 
+
+<!-- Adding in contents for the help page -->
+<body>
+    <div class="help"> 
+      <h1>Instructions on how to use SNPEuro<h1>
+    </div> 
+</body>
+
+
+<!-- Choosing searches -->
+<img src="/static/search_options.png" alt="search options" style="width:600px">
+<ul>
+  <li>Choose the type of search you require.</li>
+  <li>Inputs available are SNP, Gene Name and Genomic Coordinates.</li>
+</ul>
+
+<!-- View genetic tests and download them -->
+<img src="/static/genetic_annotations.png" alt="view genetic annotations and downloads button" style="width:800px">
+<ul>
+  <li>View the genetic annotations and download as a csv file.</li>
+</ul>
+
+<!-- Choosing statistical test, populations and sliding windows for multiple SNP searches -->
+<img src="/static/multiple_SNP.png" alt="multiple SNP search options" style="width:800px">
+<ul>
+  <li>For searches that result in more than one SNP being selected, you can select statistical tests of choice, populations and sliding window parameters.</li>
+</ul>
+
+<!-- Choosing statistical test, populations and sliding windows for multiple SNP searches -->
+<img src="/static/results_table.png" alt="results table" style="width:800px">
+<ul>
+  <li>You can view the statistical results from your selection and download them.</li>
+  <li>For SNP and gene searches, you can download genotype and allele frequencies. The output is shown below.</li>
+</ul>
+
+<img style="width:800px" src="/static/rsidjson.png">
+
+{% endblock %}

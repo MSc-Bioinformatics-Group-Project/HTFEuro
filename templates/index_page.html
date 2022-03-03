@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %} 
+SNPEuro Portal
+{% endblock %}
+
+{% block content %} 
+<body>
+    <div class="snpsearch"> 
+        <h1>SNP Search<h1>
+    </div> 
+    <form method="POST" action="">
+<!-- add form -->
+        {{form.hidden_tag()}}
+        <fieldset class="form-group">
+            <div class="form-group">
+                {{ form.snp_name.label(class="form-control-label") }}
+                {% if form.snp_name.errors %}
+                    {{ form.snp_name(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.search.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.snp_name(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+    </form>
+</body>
+{% endblock %}

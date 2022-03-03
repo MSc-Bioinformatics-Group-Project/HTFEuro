@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %} 
+SNPEuro 
+{% endblock %}
+
+{% block content %} 
+
+<!-- Header -->
+<body>
+<div class="header"> 
+  <h1>Welcome to SNPEuro<h1>
+  <h5>SNPEuro is a web application that explores and provides statistical analyses of SNPs from European populations<h5> 
+</div> 
+</body>
+
+
+<!-- Middle Links -->
+<div class="services-container section-container">
+    <div class="container">
+
+
+<!-- Middle Links -->
+
+<div class="container ">
+  <div class="row">
+    <div class="col-md-4 services-box wow fadeInUp">
+      <a href="/snpsearch"><h3><div title="Input SNP"><strong>SNP Search</strong></div> </h3> <!-- Adds link to "SNP Search" -->
+      <a href="/snpsearch"> <!-- Adds link to image -->
+      <img src="https://i.guim.co.uk/img/media/7322c4fb1fb4eaa0f74c43686966651705294f3e/0_6_3100_1860/master/3100.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=03a223c6e631e2e70eabb79b25187f92" alt="SNP" style="width:300px">
+      </a>
+      <p><a href="/snpsearch">Input SNP of choice</a></p>
+    </div>
+
+    <div class="col-md-4 services-box wow fadeInUp">
+      <a href="/genesearch"><h3><div title="Input Gene"><strong>Gene Search</strong></div> </h3>
+      <a href= "/genesearch">
+      <img src="https://cdn-icons-png.flaticon.com/512/959/959842.png" alt="Gene" style="width:300px">
+    </a>
+      <p><a href="/genesearch">Input Gene of choice</a></p>
+    </div>
+
+    <div class="col-md-4 services-box wow fadeInUp">
+      <a href="/genomic"><h3><div title="Input Genomic Coordinates"><strong>Genomic Coordinate Search</strong></div> </h3>
+      <a href= "/genomic">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Blank_map_of_Europe_cropped_%28blue%29.svg" alt="Mao" style="width:270px">
+    </a>
+      <p><a href="/genomic">Input Genomic Coordinates of choice</a></p>
+    </div>
+    
+{% endblock %}

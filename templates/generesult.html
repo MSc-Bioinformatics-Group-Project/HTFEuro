@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %} 
+SNPEuro Portal
+{% endblock %}
+
+{% block content %} 
+
+<div class ="content-section">
+  <!-- Download button -->
+   <button class="btn btn-primary btn-sm button5 float-right" style="width:5%" onclick="exportTableToCSV('Statistics.csv')"><i class="fa fa-download" style="font-size:18px"></i></button>
+
+
+</style>
+
+
+<legend class="border-bottom mb-4">{{item}}</legend>
+
+<ul class="nav nav-tabs nav-fill">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#SR">Results</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#PLOTS">Plots</a>
+  </li>
+</ul>
+
+<!-- Genetic Annotation tabs -->
+<div class="tab-content">
+  <div class="tab-pane container active" id="SR">
+    
+    <table class="table table-hover">
+      {% for item in items%}
+      <tr>
+      <th scope="row">{{item.result[:-10]}}</th>
+        <td>{{item.result}}</td>
+      </tr>
+      {% endfor %} 
+    </table>
+</div>
+
+<a href = "/get-download"> Click here to download file for genotype and allele frequencies</a>
+
+<div class="tab-pane container fade" id="PLOTS">
+  {% for plot in plots.keys() %}
+  <h1>{{plots[plot][0]}}</h1>
+  <figure>
+    <li><img src="{{plot}}" width="1000" height="750"></li>
+    <figcaption> {{plots[plot][1]}} </figcaption>
+  </figure>
+    
+  {% endfor %}
+
+
+<!-- Download button-->
+<script>
+  function downloadCSV(csv, filename) {
+                 var csvFile;
+                 var downloadLink;
+ 
+                 csvFile = new Blob([csv], {type: "text/csv"});
+ 
+ 
+                 downloadLink = document.createElement("a");
+ 
+                 downloadLink.download = filename;
+ 
+                 downloadLink.href = window.URL.createObjectURL(csvFile);
+ 
+ 
+                 downloadLink.style.display = "none";
+ 
+                 document.body.appendChild(downloadLink);
+ 
+ 
+                 downloadLink.click();
+             }
+ 
+ 
+  function exportTableToCSV(filename) {
+             var csv = [];
+             var rows = document.querySelectorAll("table tr");
+ 
+             for (var i = 0; i < rows.length; i++) {
+                 var row = [], cols = rows[i].querySelectorAll("td, th");
+ 
+                 for (var j = 0; j < cols.length; j++) 
+                     row.push("\""+cols[j].innerText+"\"");
+ 
+                 csv.push(row.join(","));        
+             }
+ 
+             // Download CSV file
+             downloadCSV(csv.join("\n"), filename);
+         }
+ </script>
+
+{% endblock %}
