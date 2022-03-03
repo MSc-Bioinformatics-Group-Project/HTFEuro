@@ -2,6 +2,7 @@
 library(tidyverse)
 library(PopGenome)
 library(ggplot2)
+library(bigmemory)
 
 #### constant population order - ('British','Finnish','CEPH','Iberian','Toscani')
 #read data
