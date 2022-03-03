@@ -406,7 +406,7 @@ def generesult():
 
 @app.route("/get-download")
 def get_image():
-    uploads = app.config["results"] = "/home/bt211033/flask/SNPEuro1"
+    uploads = app.config["results"] = "/home/bt211033/flask/SNPEuro"
     filename='results.json'
     try:
         return send_from_directory(uploads,filename, as_attachment=True)
