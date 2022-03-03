@@ -1,12 +1,10 @@
 # SNPEuro
 
-SNPEuro(Single Nucleotide Polymorphism Europe) is created as part of the Bioinformatics Group Software Development Project during the Queen Mary University of London Bioinformatics MSc.
+SNPEuro is an application designed to give users information on population genomics with specific features of SNPs related to European populations.
 
-User should be able to retrive single nucleotide polymorphism (SNP) information given either a genomic coordinate (chromosome, start and end), SNP name (rs value), or gene name (or any aliases associated to it).
+SNPEuro is a simple user-friendly platform where single nucleotide polymorphism (SNP) information for a genomic region of interest from a single chromosome is available from different populations in Europe. These include British, CEPH, Finnish, Iberian and Toscani. Search features of SNPEuro are linked to a curated database with information on the SNPs. You are able to receive an output for genotype and allele frequencies relative to selected SNPs. You can also visualise calculated statistics relative to the chosen SNP, which include a measure of genetic/nucleotide diversity, haplotype diversity and neutrality. When multiple populations are selected, population genetic variation for each pair value is reported. You can visualise the data with the graphical outputs, which can be downloaded for future use and interpretation.
 
-SNPEUro will return the following information for each SNP: name (rs value), genomic position, genotype frequencies, and allele frequency. Frequencies should be provided for each population separately.
-
-If multiple SNPs are returned, the user should be able to select the population(s) and summary statistics of interest, and the application will calculate them and plot their distribution in sliding-windows along the region. If multiple populations are selected, then population genetic variation (FST value) for each pair of populations should be reported.
+Developers of this web app were Bui V, Gill U, Johnson L & Kharnair N.
 
 
 # Installing SNPEuro
